@@ -25,6 +25,24 @@
   --maxw: 1140px;
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+/* ---------- Light theme (html[data-theme="light"]; default is dark) ---------- */
+html[data-theme="light"] {
+  --bg: #f5f7fb;
+  --bg-soft: #ecf0f7;
+  --panel: #ffffff;
+  --panel-2: #f2f5fa;
+  --border: #d8e0ec;
+  --border-soft: #e3e9f2;
+  --text: #101b2d;
+  --muted: #4a5a72;
+  --faint: #75849a;
+  --idle: #9aa9bf;
+  --grad-soft: linear-gradient(135deg, rgba(124,92,255,.12), rgba(34,211,238,.08));
+  --shadow: 0 24px 60px -28px rgba(23,34,61,.22);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -95,9 +113,12 @@ img { max-width: 100%; display: block; }
 .btn svg { width: 17px; height: 17px; }
 .btn-primary { background: var(--grad); color: #0a0e17; box-shadow: 0 10px 28px -10px rgba(124,92,255,.8); }
 .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 36px -12px rgba(124,92,255,.9); }
-.btn-ghost { background: rgba(255,255,255,.04); border-color: var(--border); color: var(--text); }
-.btn-ghost:hover { background: rgba(255,255,255,.08); border-color: #2a3850; }
+.btn-ghost { background: rgba(124,92,255,.10); border-color: rgba(124,92,255,.32); color: var(--text); }
+.btn-ghost:hover { background: rgba(124,92,255,.18); border-color: rgba(124,92,255,.5); }
 .btn-sm { padding: 8px 14px; font-size: 13.5px; border-radius: 9px; }
+/* the nav's Download is a .btn-primary inside .nav-links — keep its dark-on-gradient
+   text from being washed out by the generic nav-link colour/hover rules */
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: #0a0e17; background: var(--grad); }
 
 /* ---------- Hero ---------- */
 .hero { padding: 84px 0 56px; position: relative; }
@@ -621,11 +642,40 @@ footer { border-top: 1px solid var(--border-soft); padding: 48px 0 40px; margin-
 .badge-soon { display: inline-block; font-size: 12px; font-weight: 700; color: var(--warn); background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.25); padding: 3px 10px; border-radius: 999px; vertical-align: middle; }
 
 @media (max-width: 860px) {
-  .tiers { grid-template-columns: 1fr; }
+  .tiers, .tiers.cols-2 { grid-template-columns: 1fr; }
   .studio-flow { grid-template-columns: 1fr; }
   .studio-arrow { transform: rotate(90deg); padding: 8px 0; }
   .studio-arrow span { transform: rotate(-90deg); }
 }
+
+/* ---------- Theme switcher (Light / System / Dark) ---------- */
+.theme-seg { display: inline-flex; align-items: center; gap: 2px; padding: 3px; margin-left: 6px; border: 1px solid var(--border); border-radius: 999px; background: rgba(124,92,255,.06); }
+.theme-seg button { width: 26px; height: 26px; border-radius: 999px; border: none; background: transparent; color: var(--faint); display: grid; place-items: center; cursor: pointer; padding: 0; transition: color .15s, background .15s; }
+.theme-seg button:hover { color: var(--text); }
+.theme-seg button.on { background: var(--grad); color: #0a0e17; }
+.theme-seg svg { width: 14px; height: 14px; }
+
+/* ---------- Light-mode page chrome (app windows & code stay dark below) ---------- */
+html[data-theme="light"] body::before {
+  background:
+    radial-gradient(900px 500px at 78% -8%, rgba(124,92,255,.10), transparent 60%),
+    radial-gradient(800px 520px at 8% 8%, rgba(34,211,238,.07), transparent 55%),
+    radial-gradient(700px 700px at 50% 120%, rgba(79,140,255,.07), transparent 60%);
+}
+html[data-theme="light"] .nav { background: rgba(245,247,251,.82); }
+html[data-theme="light"] .nav-links a:hover { background: rgba(16,27,45,.06); }
+html[data-theme="light"] :is(.flow .node, .ai-chip, .dl-btn) { background: rgba(16,27,45,.04); }
+/* App mockups, demo windows, studio skeletons and code blocks DEPICT the (dark) app —
+   they keep the dark surface in light mode, so re-pin the dark tokens inside them. */
+html[data-theme="light"] :is(.mock, .demo-win, .studio-win, .codeblock) {
+  --text: #e7eef7; --muted: #97a6bb; --faint: #6b7a90;
+  --border: #1e2838; --border-soft: #18212f;
+  --panel: #111827; --panel-2: #141c2b; --bg-soft: #0d1320;
+  color: var(--text); color-scheme: dark;
+}
+
+/* The about-page family grid: four cards read best 2×2 */
+.tiers.cols-2 { grid-template-columns: repeat(2, 1fr); }
 
 /* the hidden attribute must always win, even over flex/grid panels */
 [hidden] { display: none !important; }

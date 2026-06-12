@@ -7,6 +7,30 @@
     el.textContent = String(new Date().getFullYear());
   });
 
+  // ---- Theme: Light / System / Dark (persisted; head snippet pre-applies) ----
+  var THEME_KEY = "mybi-theme";
+  var media = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function applyTheme(mode) {
+    var resolved = mode === "system" ? (media && !media.matches ? "light" : "dark") : mode;
+    document.documentElement.dataset.theme = resolved;
+    document.querySelectorAll(".theme-seg button").forEach(function (b) {
+      b.classList.toggle("on", b.dataset.mode === mode);
+    });
+  }
+  var themeMode = "system";
+  try { themeMode = localStorage.getItem(THEME_KEY) || "system"; } catch (e) { /* private mode */ }
+  applyTheme(themeMode);
+  document.querySelectorAll(".theme-seg button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      themeMode = b.dataset.mode;
+      try { localStorage.setItem(THEME_KEY, themeMode); } catch (e) { /* private mode */ }
+      applyTheme(themeMode);
+    });
+  });
+  if (media && media.addEventListener) {
+    media.addEventListener("change", function () { if (themeMode === "system") applyTheme(themeMode); });
+  }
+
   // Subtle shadow on the nav once the page is scrolled.
   var nav = document.querySelector(".nav");
   if (nav) {
