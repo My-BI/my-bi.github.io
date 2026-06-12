@@ -50,15 +50,15 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
 <!-- ===================== PROGRESS SUMMARY ===================== -->
 <section class="wrap" style="padding-top:24px">
   <div class="rm-stats">
-    <div class="rm-stat"><div class="n g">13</div><div class="l">Phases shipped</div></div>
-    <div class="rm-stat"><div class="n">5</div><div class="l">In progress</div></div>
-    <div class="rm-stat"><div class="n">11</div><div class="l">Major phases planned</div></div>
+    <div class="rm-stat"><div class="n g">15</div><div class="l">Phases shipped</div></div>
+    <div class="rm-stat"><div class="n">6</div><div class="l">In progress</div></div>
+    <div class="rm-stat"><div class="n">10</div><div class="l">Major phases planned</div></div>
     <div class="rm-stat"><div class="n">v0.1</div><div class="l">Current build</div></div>
   </div>
 
   <div class="progress-track" role="img" aria-label="Roughly half of the roadmap is shipped, with several phases in progress">
-    <div class="seg-done" style="width:45%"></div>
-    <div class="seg-prog" style="width:17%"></div>
+    <div class="seg-done" style="width:48%"></div>
+    <div class="seg-prog" style="width:19%"></div>
   </div>
   <div class="progress-legend">
     <span><i class="dotsq done"></i> Shipped</span>
@@ -99,6 +99,11 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
       <div class="rm-item done">
         <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.4</span><h4>Workspace shell — panels, rail &amp; settings</h4><span class="status done">✓ Shipped</span></div>
         <p>An activity-bar shell with a mirrored right context dock (Data / Charts / Analytics / AI), capped on-screen panels, pinning, theming (System / Light / Dark / OLED) and macOS trackpad haptics. The Settings area was rebuilt into <b>App / Project / Dashboard</b> scopes, with Project subsystems — git remote, encrypted-forensic export, plugin permissions and AI provider keys.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.6</span><h4>App security &amp; lock</h4><span class="status done">✓ Shipped</span></div>
+        <p>A sign-in lock screen with biometric unlock (⌘L + idle auto-lock), a device-bound encrypted secret store, Argon2id passkeys on encrypted exports, per-project export-policy controls, and an air-gapped mode that cuts the app off from the internet entirely — hardened by two rounds of security-audit fixes.</p></div>
       </div>
 
       <div class="rm-item">
@@ -180,7 +185,12 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
 
       <div class="rm-item done">
         <div class="rm-row"><div class="top"><span class="rm-ph">Phase 5.2</span><h4>Git versioning + push to a remote</h4><span class="status done">✓ Shipped</span></div>
-        <p>The project folder is a git repo — each dataset commit is a git commit. A Data → Git terminal, since-commit Explorer badges, U/M tracking badges and push to a git remote, with <b>Project → Git settings</b>, structured commits and in-app sign-in to your git host.</p></div>
+        <p>The project folder is a git repo — each dataset commit is a git commit. A Data → Git terminal, since-commit Explorer badges, U/M tracking badges and push to a git remote, with <b>Project → Git settings</b>, structured commits, a Source Control rail (changes + commit graph) and in-app sign-in to your git host.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 5.3</span><h4>MyBI Server — self-hosted live dashboards</h4><span class="status done">✓ Shipped</span></div>
+        <p>A self-hosted dashboard host built on the same engine as the desktop (one shared core crate): publish &amp; read keys, a refresh scheduler (full or incremental append), <b>live views</b> over your own sources, Docker + service packaging, and a live viewer page that pulls aggregated data from your server with a snapshot fallback. Publish to it straight from the desktop.</p></div>
       </div>
 
     </div>
@@ -247,7 +257,7 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
 
       <div class="rm-item done">
         <div class="rm-row"><div class="top"><span class="rm-ph">Phase 9</span><h4>AI assistant</h4><span class="status done">✓ Shipped</span></div>
-        <p>A native, <b>on-device</b> assistant: chat about your datasets and documents (built-in retrieval), pluggable local engines, guardrails with author-tagged actions you approve, and <b>consent-gated</b> data access — nothing is sent to a cloud, and raw values only flow with your explicit OK.</p></div>
+        <p>A native, <b>on-device</b> assistant: chat about your datasets and documents (built-in retrieval), pluggable local engines, guardrails with author-tagged actions you approve, and <b>consent-gated</b> data access — nothing is sent to a cloud, and raw values only flow with your explicit OK. Rounded out by scoped project / dashboard / user memory and an ask-first web-search mode.</p></div>
       </div>
 
       <div class="rm-item">
@@ -265,9 +275,9 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
         <p>Format adapters that open dashboards and projects exported from other BI and GIS tools and re-render the equivalent dashboard on the MyBI canvas.</p></div>
       </div>
 
-      <div class="rm-item">
-        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 14</span><h4>Accounts, organisations &amp; roles</h4><span class="status idle">Planned</span></div>
-        <p>Opt-in: a hosted workspace with organisations, roles (developer / editor / viewer), SSO / OAuth / SAML, audit logs, lineage and RLS/CLS.</p></div>
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 14</span><h4>Accounts, organisations &amp; roles</h4><span class="status prog">● In progress</span></div>
+        <p>Underway in <b>MyBI Enterprise Studio</b> (coming soon): work-account sign-in, organisations and roles — admin · project leader · dashboard developer — governing who can open and edit which projects and dashboards, with sessions sealed to the device. Later: SSO / SAML, audit logs, lineage and RLS/CLS. A free, personal MyBI signs in to nothing.</p></div>
       </div>
 
       <div class="rm-item">
