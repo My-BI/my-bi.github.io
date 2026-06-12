@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyBI — Roadmap</title>
+<meta name="description" content="The MyBI roadmap — how far the project has come, phase by phase. The core platform, Calc Engine, charts, canvas, publishing and the on-device AI assistant have shipped; full GIS and a palette marketplace are on the way." />
+<meta name="theme-color" content="#0a0e17" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="MyBI home">
+      <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+      <span>My<b>BI</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="build-plugin.html">Developers</a>
+      <a href="roadmap.html" class="active">Roadmap</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-primary btn-sm" href="index.html#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero wrap">
+  <span class="kicker">Roadmap</span>
+  <h1>How far MyBI has <span class="g">come</span></h1>
+  <p>MyBI ships usable software at every step. The core platform, data tooling, Calc Engine, a 40-kind chart catalogue, the dashboard canvas, analytics, publishing and the on-device AI assistant are already in your hands — here's the full picture, phase by phase.</p>
+</section>
+
+<!-- ===================== PROGRESS SUMMARY ===================== -->
+<section class="wrap" style="padding-top:24px">
+  <div class="rm-stats">
+    <div class="rm-stat"><div class="n g">13</div><div class="l">Phases shipped</div></div>
+    <div class="rm-stat"><div class="n">5</div><div class="l">In progress</div></div>
+    <div class="rm-stat"><div class="n">11</div><div class="l">Major phases planned</div></div>
+    <div class="rm-stat"><div class="n">v0.1</div><div class="l">Current build</div></div>
+  </div>
+
+  <div class="progress-track" role="img" aria-label="Roughly half of the roadmap is shipped, with several phases in progress">
+    <div class="seg-done" style="width:45%"></div>
+    <div class="seg-prog" style="width:17%"></div>
+  </div>
+  <div class="progress-legend">
+    <span><i class="dotsq done"></i> Shipped</span>
+    <span><i class="dotsq prog"></i> In progress</span>
+    <span><i class="dotsq idle"></i> Planned</span>
+  </div>
+</section>
+
+<!-- ===================== TIMELINE ===================== -->
+<section class="wrap" style="padding-top:32px">
+
+  <!-- Milestone 1 -->
+  <div class="rm-group">
+    <h3>Milestone 1 — Foundations &amp; data</h3>
+    <p class="gd">A working app shell, project system and a complete pipeline for getting data in and shaping it.</p>
+    <div class="timeline">
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1</span><h4>Core platform</h4><span class="status done">✓ Shipped</span></div>
+        <p>App shell, workspace/project system, the Importer for local files, the data explorer, and the embedded SQL engine + local metadata store.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.1</span><h4><code>.mybi</code> bundle + app shell</h4><span class="status done">✓ Shipped</span></div>
+        <p>Folder-bundle project format, an activity bar of blocks, the folder explorer panel, drag-file-to-canvas, and the typed block event bus.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.2</span><h4>Importer connectors</h4><span class="status done">✓ Shipped</span></div>
+        <p>SQL databases (read-only) and REST / JSON connectors, with a connection manager and passwords stored in the OS keychain.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.3</span><h4>Get-Data wizard + Data editor</h4><span class="status done">✓ Shipped</span></div>
+        <p>A guided Get-Data wizard with live preview, merge-across-files &amp; sheets, a spreadsheet-style transform ribbon (group by, pivot, window, rank…), revertable history, quality tools, and export to CSV / TSV / JSON / Parquet / XLSX. Your original file is never modified.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.4</span><h4>Workspace shell — panels, rail &amp; settings</h4><span class="status done">✓ Shipped</span></div>
+        <p>An activity-bar shell with a mirrored right context dock (Data / Charts / Analytics / AI), capped on-screen panels, pinning, theming (System / Light / Dark / OLED) and macOS trackpad haptics. The Settings area was rebuilt into <b>App / Project / Dashboard</b> scopes, with Project subsystems — git remote, encrypted-forensic export, plugin permissions and AI provider keys.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 1.5</span><h4>Data warehouse — multi-source modelling</h4><span class="status idle">Planned</span></div>
+        <p>Org-scale ingestion, incremental append, schema-drift handling and scheduled refresh — moving to a separate companion app MyBI connects to via a Warehouse connector.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 2 -->
+  <div class="rm-group">
+    <h3>Milestone 2 — Modelling &amp; the compute core</h3>
+    <p class="gd">One engine that owns every number, with relationships and a formula language on top.</p>
+    <div class="timeline">
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 2</span><h4>Semantic block — relationships</h4><span class="status done">✓ Shipped</span></div>
+        <p>A visual model diagram: draggable table boxes, drag-to-connect, and data-verified auto-detect with cardinality + confidence, powering cross-table joins.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 2.1</span><h4>Calc Engine — single compute core</h4><span class="status done">✓ Shipped</span></div>
+        <p>One shared core: a QuerySpec compiled to a single canonical SQL query (aggregations, % of total, stats), parameterised filters and golden-number consistency tests.</p></div>
+      </div>
+
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 2.2</span><h4>MyBI formula language</h4><span class="status prog">● In progress</span></div>
+        <p>A safe expression compiler with a Data-editor formula editor, live validation, autocomplete &amp; ~80 engine-verified row-wise functions and table joins. Next: aggregate functions, dependency graph and reusable named measures.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 3 -->
+  <div class="rm-group">
+    <h3>Milestone 3 — Visualise &amp; analyse</h3>
+    <p class="gd">Turn results into charts on a dashboard canvas, with an analyst toolset alongside.</p>
+    <div class="timeline">
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 3</span><h4>Charts block</h4><span class="status done">✓ Shipped</span></div>
+        <p>Two native chart engines with <b>40 chart kinds</b> — from bar, line and pie to heatmap, sankey, waterfall, calendar, geo maps and 3D — with a live-preview builder, a per-chart options popup and animated per-kind explainers. Every chart computes through the Calc Engine.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 4</span><h4>Canvas block</h4><span class="status done">✓ Shipped</span></div>
+        <p>A zoomable dashboard canvas (fixed sizes or freeform) with rulers, a full-featured ribbon, free drag-resize cards, <b>cross-filtering</b>, <b>multi-sheet footer tabs</b>, page-builder chrome (header / footer / nav bars), slicers, metric tiles, shapes &amp; SmartArt, <b>palette-driven themes</b> and per-dashboard layout persistence.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 4.1</span><h4>Analytics block</h4><span class="status done">✓ Shipped</span></div>
+        <p>An Analytics tab on charts: trend lines, forecasting, confidence intervals and correlation, with configurable parameters — all computed through the Calc Engine.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 4.2</span><h4>Sentiment analysis</h4><span class="status idle">Planned</span></div>
+        <p>A text / sentiment toolset wired through the Calc Engine and the Analytics tab.</p></div>
+      </div>
+
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 4.5</span><h4>Import-adapter framework</h4><span class="status prog">● In progress</span></div>
+        <p>An <code>ImportAdapter</code> contract + canonical <code>ImportedReport</code> model so dashboards exported from other BI tools can later plug in and re-render on the MyBI canvas. Contract stubbed; parsers come in Phase 13.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 4 -->
+  <div class="rm-group">
+    <h3>Milestone 4 — Share &amp; version</h3>
+    <p class="gd">Publish dashboards and treat every project as versioned, git-native history.</p>
+    <div class="timeline">
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 5 · 5.1</span><h4>Publish &amp; share</h4><span class="status done">✓ Shipped</span></div>
+        <p><b>Three ways to share a dashboard</b>: live from your own self-hosted server (scheduled refresh + live views over your sources), a portable read-only encrypted <code>.mbix</code> snapshot, or a static aggregated web page. In all three, only <b>aggregated</b> results ever leave — raw rows never do. Multi-page printable reports (PDF / PNG / spreadsheet) are still to come.</p></div>
+      </div>
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 5.2</span><h4>Git versioning + push to a remote</h4><span class="status done">✓ Shipped</span></div>
+        <p>The project folder is a git repo — each dataset commit is a git commit. A Data → Git terminal, since-commit Explorer badges, U/M tracking badges and push to a git remote, with <b>Project → Git settings</b>, structured commits and in-app sign-in to your git host.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 5 -->
+  <div class="rm-group">
+    <h3>Milestone 5 — Extensibility &amp; the locked platform</h3>
+    <p class="gd">Expose the block API to third parties through a versioned SDK — with untrusted code sandboxed behind declared permissions.</p>
+    <div class="timeline">
+
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 6</span><h4>Plugin / extension framework</h4><span class="status prog">● In progress</span></div>
+        <p>Underway: plugin loading with <b>tiered rails</b> (first-party · Trusted by MyBI · community), <b>Ed25519 signing &amp; verification</b>, a host field drag-and-drop bridge, plugin-contributed panels &amp; visuals, and per-plugin <b>permission manifests</b> surfaced in Settings. Still to come: full sandbox &amp; resource enforcement (6.3 / 6.4).</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 6.1 · 6.2</span><h4>Web scraper &amp; marketing connectors</h4><span class="status idle">Planned</span></div>
+        <p>Basic scraping to CSV / JSON / XLSX, plus Google Analytics, Facebook and X (Twitter) analytics data sources.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 6.3 · 6.4</span><h4>Permission, sandbox &amp; audit</h4><span class="status idle">Planned</span></div>
+        <p>Runtime permission checks on every call, capability gating with RLS/CLS + masking before data leaves the core, resource controls, network-off-by-default, and an immutable audit log across the extension lifecycle.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 6.5</span><h4>Palette marketplace</h4><span class="status idle">Planned</span></div>
+        <p>A colour-palette marketplace mirroring the plugin flow — Installed / Marketplace / My palettes, signed like plugins, theming the app and every chart.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 6 -->
+  <div class="rm-group">
+    <h3>Milestone 6 — Geospatial, modelling &amp; scripting</h3>
+    <p class="gd">Professional-grade GIS, simulation, and governed Python / R / query scripting.</p>
+    <div class="timeline">
+
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 7 · 8</span><h4>GIS foundation &amp; advanced GIS</h4><span class="status prog">● In progress</span></div>
+        <p>Point, heat &amp; choropleth maps (with 3D views) already ship as chart kinds. Next: full GIS data formats — GeoJSON / Shapefile / GeoPackage / KML / GPX, spatial databases / WMS / WMTS / XYZ — then spatial analysis, raster, cartography and print layouts.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 8.5</span><h4>Simulation &amp; modelling</h4><span class="status idle">Planned</span></div>
+        <p>User-defined criteria driving business/financial, statistical/ML, operations and system-dynamics models — all computing via the Calc Engine.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 8.6</span><h4>Scripting block — Python / R / query</h4><span class="status idle">Planned</span></div>
+        <p>Scripts as analytical consumers of governed datasets (<code>platform.get_dataset(…)</code>), run in sandboxed runtimes — never connecting to sources or credentials themselves. Built on the Phase 6 SDK + permission layer.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Milestone 7 -->
+  <div class="rm-group">
+    <h3>Milestone 7 — AI, marketplace &amp; the cloud</h3>
+    <p class="gd">Conversational analysis, hosted publishing, a marketplace, format compatibility, and finally accounts.</p>
+    <div class="timeline">
+
+      <div class="rm-item done">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 9</span><h4>AI assistant</h4><span class="status done">✓ Shipped</span></div>
+        <p>A native, <b>on-device</b> assistant: chat about your datasets and documents (built-in retrieval), pluggable local engines, guardrails with author-tagged actions you approve, and <b>consent-gated</b> data access — nothing is sent to a cloud, and raw values only flow with your explicit OK.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 10 · 11</span><h4>AI GIS &amp; the API builder</h4><span class="status idle">Planned</span></div>
+        <p>Natural-language spatial SQL and map generation, plus a REST API builder over published dashboards.</p></div>
+      </div>
+
+      <div class="rm-item prog">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 12</span><h4>Marketplace</h4><span class="status prog">● In progress</span></div>
+        <p>Installing <b>signed plugins &amp; palettes</b> from the in-app marketplace is live. Next: publishing, discovery, reviews, versioning and dependencies for blocks, extensions and script packs — surfacing each item's declared permissions before install.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 13</span><h4>Compatibility layer</h4><span class="status idle">Planned</span></div>
+        <p>Format adapters that open dashboards and projects exported from other BI and GIS tools and re-render the equivalent dashboard on the MyBI canvas.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 14</span><h4>Accounts, organisations &amp; roles</h4><span class="status idle">Planned</span></div>
+        <p>Opt-in: a hosted workspace with organisations, roles (developer / editor / viewer), SSO / OAuth / SAML, audit logs, lineage and RLS/CLS.</p></div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-row"><div class="top"><span class="rm-ph">Phase 15</span><h4>Notarised distribution &amp; own-domain email</h4><span class="status idle">Planned</span></div>
+        <p>Apple-notarised, OS-signed installers with listings on the Mac App Store and Microsoft Store, plus a move from the interim address to MyBI's own-domain email and support.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="wrap">
+  <div class="cta-band">
+    <h2>Be there for the next phase.</h2>
+    <p>The shipped phases are already downloadable as builds go public.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="index.html#download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download MyBI
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/My-BI" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.13-.29-.52-1.46.1-3.05 0 0 .97-.31 3.2 1.18a11 11 0 0 1 5.82 0c2.22-1.5 3.19-1.18 3.19-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+        Follow the project
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+          <span>My<b>BI</b></span>
+        </a>
+        <p>Cross-platform analytics &amp; geospatial intelligence — built block-first, runs fully offline.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h4>Developers</h4>
+          <a href="build-plugin.html">Build a plugin</a>
+          <a href="verify.html">Get verified</a>
+          <a href="build-plugin.html">SDK</a>
+        </div>
+        <div class="foot-col">
+          <h4>Project</h4>
+          <a href="about.html">About</a>
+          <a href="roadmap.html">Roadmap</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> MyBI. Business intelligence that stays on your machine.</span>
+      <span>Roadmap subject to change as phases ship.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

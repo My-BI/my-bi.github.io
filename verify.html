@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyBI — Get verified (Trusted by MyBI)</title>
+<meta name="description" content="Get your MyBI plugin verified as Trusted by MyBI. The Publisher Studio cross-sign model: you sign your plugin with your key, MyBI countersigns your public key — no private key is ever shared." />
+<meta name="theme-color" content="#0a0e17" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="MyBI home">
+      <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+      <span>My<b>BI</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="build-plugin.html" class="active">Developers</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-primary btn-sm" href="index.html#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero wrap">
+  <span class="kicker">Get verified</span>
+  <h1>Earn the <span class="g">Trusted by MyBI</span> badge</h1>
+  <p>Cross-signing lets users trust your plugin without trusting you blindly. You sign your plugin with your key; MyBI countersigns your <em>public</em> key. No private key is ever shared — in either direction.</p>
+</section>
+
+<!-- Trust tiers -->
+<section class="wrap" style="padding-top:24px">
+  <div class="sec-head">
+    <span class="kicker">Trust tiers</span>
+    <h2 class="sec-title">Three levels of trust</h2>
+  </div>
+  <div class="tiers">
+    <div class="tier-card">
+      <h3>First-party <span class="badge mybi">MyBI</span></h3>
+      <p>Built and signed by MyBI with the first-party key. The blocks that ship inside the app.</p>
+    </div>
+    <div class="tier-card">
+      <h3>Third-party <span class="badge trusted">Trusted by MyBI</span></h3>
+      <p>Built by you, signed with your key, and <b>countersigned by MyBI</b> after review. Users see a verified badge.</p>
+    </div>
+    <div class="tier-card">
+      <h3>Community <span class="badge">community</span></h3>
+      <p>Self-signed and installable by anyone. Genuine and untampered — just not reviewed or countersigned by MyBI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Cross-sign skeleton -->
+<section class="wrap">
+  <div class="sec-head">
+    <span class="kicker">How cross-signing works</span>
+    <h2 class="sec-title">Two studios, one public-key handshake</h2>
+    <p class="sec-sub">Publisher Studio is yours. Signer Studio is MyBI's. Only public keys and signed artifacts cross between them — secrets stay put.</p>
+  </div>
+
+  <div class="studio-flow">
+    <!-- Publisher Studio -->
+    <div class="studio-win">
+      <div class="sw-bar"><i></i><i></i><i></i>&nbsp; Publisher Studio · you</div>
+      <div class="sw-body">
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/></svg></span> Generate your keypair</div>
+        <div class="sw-row key">🔒 private key — never leaves this machine</div>
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span> Sign your plugin with it</div>
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span> Export public key + signed plugin</div>
+      </div>
+    </div>
+
+    <!-- Arrow: public key out -->
+    <div class="studio-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <span>public key (leak-safe)</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span>countersigned cert</span>
+    </div>
+
+    <!-- MyBI Signer Studio -->
+    <div class="studio-win">
+      <div class="sw-bar"><i></i><i></i><i></i>&nbsp; Signer Studio · MyBI</div>
+      <div class="sw-body">
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg></span> Review the publisher</div>
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/></svg></span> Countersign the public key</div>
+        <div class="sw-row key">🔑 first-party seed — in memory only</div>
+        <div class="sw-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span> Issue “Trusted by MyBI” cert</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="trust-note" style="margin-top:22px">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    <span><b>Why this is safe.</b> Your private signing key never leaves Publisher Studio, and the MyBI first-party seed never leaves Signer Studio. MyBI only signs your <em>public</em> key — a leak-safe token. The result: anyone can verify that your plugin was signed by you <em>and</em> that MyBI vouched for your key, without either side ever exposing a secret.</span>
+  </p>
+</section>
+
+<!-- The verifier / payload -->
+<section class="wrap">
+  <div class="sec-head left">
+    <span class="kicker">What gets verified</span>
+    <h2 class="sec-title" style="text-align:left">A reproducible signature</h2>
+    <p class="sec-sub">Signatures are Ed25519 over a canonical payload — verifiable by anyone, exactly what the app checks on install.</p>
+  </div>
+  <pre class="codeblock"><span class="c"># canonical signing payload (Ed25519)</span>
+mybi-plugin-v1
+acme.sales-funnel
+1.0.0
+sha256(manifest.json)
+sha256(index.js)
+
+<span class="c"># the app verifies, on install:</span>
+<span class="s">1)</span> plugin signature      <span class="c">→ signed by the publisher's key</span>
+<span class="s">2)</span> publisher countersign  <span class="c">→ that key vouched for by MyBI</span>
+<span class="s">⇒ Trusted by MyBI ✓</span></pre>
+</section>
+
+<!-- Steps -->
+<section class="wrap">
+  <div class="sec-head left">
+    <span class="kicker">Step by step</span>
+    <h2 class="sec-title" style="text-align:left">Getting your plugin verified</h2>
+  </div>
+  <ol class="steps">
+    <li><div><b>Build your plugin</b><span>Follow the <a href="build-plugin.html" style="color:var(--brand-2)">build guide</a> — manifest, declared permissions, sandbox-ready.</span></div></li>
+    <li><div><b>Generate a keypair in Publisher Studio</b><span>An Ed25519 keypair is created locally; the private key never leaves your machine.</span></div></li>
+    <li><div><b>Sign your plugin</b><span>Publisher Studio signs the canonical payload with your private key.</span></div></li>
+    <li><div><b>Submit your public key for review</b><span>Send MyBI your public key and plugin details — never a secret.</span></div></li>
+    <li><div><b>MyBI countersigns</b><span>After review, Signer Studio countersigns your public key with the first-party seed and issues a certificate.</span></div></li>
+    <li><div><b>Ship as Trusted by MyBI</b><span>Publish the signed plugin + certificate. The app shows the verified badge; revocation stays possible if ever needed.</span></div></li>
+  </ol>
+</section>
+
+<!-- Planned: in-house signing + CTA -->
+<section class="wrap">
+  <div class="cta-band">
+    <h2>Run your own signing in-house <span class="badge-soon">Coming soon</span></h2>
+    <p>Planned: organisations will be able to issue their own keypair and countersign their <b>own internal plugins</b> with Signer Studio — alongside encrypted, forensic exports. Follow the roadmap to see when it lands.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="roadmap.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h12"/></svg>
+        See the roadmap
+      </a>
+      <a class="btn btn-ghost" href="build-plugin.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 8-4 4 4 4"/><path d="m17 8 4 4-4 4"/><path d="m14 4-4 16"/></svg>
+        Build a plugin
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+          <span>My<b>BI</b></span>
+        </a>
+        <p>Analytics &amp; geospatial intelligence that stays on your machine — built block-first, runs fully offline.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h4>Developers</h4>
+          <a href="build-plugin.html">Build a plugin</a>
+          <a href="verify.html">Get verified</a>
+          <a href="build-plugin.html">SDK</a>
+        </div>
+        <div class="foot-col">
+          <h4>Project</h4>
+          <a href="about.html">About</a>
+          <a href="roadmap.html">Roadmap</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> MyBI. Business intelligence that stays on your machine.</span>
+      <span>Private by design · your data stays on your machine.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

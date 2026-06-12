@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyBI — Build a plugin</title>
+<meta name="description" content="Build a MyBI plugin — visual, connector, processor and UI blocks on the same typed API MyBI uses internally, through a versioned SDK with declared permissions and a sandbox." />
+<meta name="theme-color" content="#0a0e17" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="MyBI home">
+      <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+      <span>My<b>BI</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="build-plugin.html" class="active">Developers</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-primary btn-sm" href="index.html#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero wrap">
+  <span class="kicker">Developers</span>
+  <h1>Build a <span class="g">MyBI plugin</span></h1>
+  <p>Visuals, connectors, processors and UI blocks — built on the same typed API MyBI uses internally, through a versioned SDK with declared permissions and a sandbox.</p>
+  <div class="hero-cta" style="justify-content:center;margin-top:26px">
+    <a class="btn btn-primary" href="verify.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+      Get verified
+    </a>
+    <a class="btn btn-ghost" href="https://github.com/My-BI" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.13-.29-.52-1.46.1-3.05 0 0 .97-.31 3.2 1.18a11 11 0 0 1 5.82 0c2.22-1.5 3.19-1.18 3.19-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      Get the SDK
+    </a>
+  </div>
+</section>
+
+<!-- What you can build -->
+<section id="kinds">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Plugin kinds</span>
+      <h2 class="sec-title">Four kinds of block, one API</h2>
+      <p class="sec-sub">Every plugin is a block with a typed contract — it composes into the same rails, panels and canvas the built-in blocks use.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="13" y="7" width="3" height="10"/></svg></div>
+        <h3>Visual</h3>
+        <p>A new chart or visual that renders on the canvas from Calc-Engine results — bind fields, draw, react to cross-filters.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div>
+        <h3>Connector</h3>
+        <p>A data source that emits a governed dataset — the platform owns the connection, credentials and query, not your code.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div>
+        <h3>Processor</h3>
+        <p>A transform step in the data editor — take a dataset in, return a transformed dataset, fully reproducible.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>UI block</h3>
+        <p>A panel or surface in the rails and docks — present controls, settings and documentation alongside the rest of the app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Locked-platform model -->
+<section class="wrap">
+  <div class="split">
+    <div>
+      <span class="kicker">Locked-platform model</span>
+      <h2 class="sec-title" style="text-align:left">Untrusted by default, sandboxed by design</h2>
+      <p class="sec-sub">A plugin never touches databases, credentials, secrets or other plugins directly. Every request flows through the SDK and a permission check before the platform core returns governed data.</p>
+      <ul class="bullet-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Declared permissions</b> — granted at install, enforced at every call.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Isolated runtime</b> — no shared memory, no reaching into other plugins.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Network off by default</b> — outbound access is allow-listed per plugin.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Audited</b> — installs, permission grants, data requests and exports are logged.</span></li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <div class="flow">
+        <div class="node"><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 8-4 4 4 4"/><path d="m17 8 4 4-4 4"/></svg></span> Your plugin</div>
+        <div class="arrow">↓</div>
+        <div class="node"><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></span> SDK + permission check</div>
+        <div class="arrow">↓</div>
+        <div class="node core"><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/></svg></span> Platform core — sole data authority</div>
+        <div class="arrow">↓</div>
+        <div class="node"><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></span> Governed dataset (RLS / masking applied)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manifest -->
+<section class="wrap">
+  <div class="sec-head left">
+    <span class="kicker">The manifest</span>
+    <h2 class="sec-title" style="text-align:left">Declare what your plugin needs</h2>
+    <p class="sec-sub">Every plugin ships a manifest. Permissions are reviewed at install — only granted ones are honoured at runtime.</p>
+  </div>
+  <pre class="codeblock"><span class="c">// mybi-plugin.json</span>
+{
+  <span class="k">"id"</span>:      <span class="s">"acme.sales-funnel"</span>,
+  <span class="k">"name"</span>:    <span class="s">"Sales Funnel"</span>,
+  <span class="k">"version"</span>: <span class="s">"1.0.0"</span>,
+  <span class="k">"kind"</span>:    <span class="s">"visual"</span>,            <span class="c">// visual · connector · processor · ui</span>
+  <span class="k">"sdk"</span>:     <span class="s">"^1"</span>,
+  <span class="k">"permissions"</span>: [
+    <span class="s">"dataset.read"</span>,            <span class="c">// read governed datasets only</span>
+    <span class="s">"dashboard.widget.create"</span>  <span class="c">// place a visual on the canvas</span>
+  ],
+  <span class="k">"network"</span>: <span class="k">false</span>                <span class="c">// outbound network off by default</span>
+}</pre>
+</section>
+
+<!-- Build & ship steps -->
+<section class="wrap">
+  <div class="split">
+    <div>
+      <span class="kicker">Build &amp; run</span>
+      <h2 class="sec-title" style="text-align:left">From scaffold to the canvas</h2>
+      <ol class="steps" style="margin-top:22px">
+        <li><div><b>Scaffold</b><span>Start from the SDK template — manifest, entry point and a typed contract for your block kind.</span></div></li>
+        <li><div><b>Develop in dev mode</b><span>Enable Developer options in Settings → Project, load your plugin, and iterate live in the app.</span></div></li>
+        <li><div><b>Build</b><span>Bundle and minify your plugin into a single distributable artifact.</span></div></li>
+        <li><div><b>Self-sign &amp; share</b><span>Sign it with your own key to ship as a <code>community</code> plugin anyone can install.</span></div></li>
+      </ol>
+    </div>
+    <div class="split-media">
+      <p class="side-title" style="margin-bottom:10px">Self-verify before you ship</p>
+      <p class="sec-sub" style="margin:0 0 14px">MyBI can verify any installed plugin's signature locally — confirm your build is intact and untampered before distributing it.</p>
+      <pre class="codeblock"><span class="c"># build + sign (community tier)</span>
+pnpm build
+mybi-sign ./dist --key ~/.mybi/dev.key
+
+<span class="c"># verify locally</span>
+mybi-verify ./dist
+<span class="s">✓ signature valid · acme.sales-funnel@1.0.0</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap">
+  <div class="cta-band">
+    <h2>Ready for the “Trusted by MyBI” badge?</h2>
+    <p>Community plugins install freely. To ship as <b>Trusted by MyBI</b>, get your publisher key countersigned — no private key ever leaves your machine.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="verify.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+        How to get verified
+      </a>
+      <a class="btn btn-ghost" href="roadmap.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h12"/></svg>
+        Roadmap
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+          <span>My<b>BI</b></span>
+        </a>
+        <p>Analytics &amp; geospatial intelligence that stays on your machine — built block-first, runs fully offline.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h4>Developers</h4>
+          <a href="build-plugin.html">Build a plugin</a>
+          <a href="verify.html">Get verified</a>
+          <a href="build-plugin.html">SDK</a>
+        </div>
+        <div class="foot-col">
+          <h4>Project</h4>
+          <a href="about.html">About</a>
+          <a href="roadmap.html">Roadmap</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> MyBI. Business intelligence that stays on your machine.</span>
+      <span>Private by design · your data stays on your machine.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

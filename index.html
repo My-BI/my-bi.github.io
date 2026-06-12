@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyBI — Business intelligence that stays on your machine</title>
+<meta name="description" content="MyBI is a business intelligence platform for macOS, Windows & Linux. Powerful dashboards, deep analytics and geospatial intelligence — your data stays on your machine and runs fully offline, with no account and no cloud." />
+<meta name="theme-color" content="#0a0e17" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<meta property="og:title" content="MyBI — Business intelligence that stays on your machine" />
+<meta property="og:description" content="BI for macOS, Windows & Linux. Your data stays on your machine and runs fully offline — no account, no cloud." />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="MyBI home">
+      <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+      <span>My<b>BI</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="build-plugin.html">Developers</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-primary btn-sm" href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Private · Cross-platform · Offline</span>
+      <h1 class="hero-title">Business intelligence that <span class="g">stays on your machine</span>.</h1>
+      <p class="hero-sub">Powerful dashboards, deep analytics and geospatial intelligence — built block-first and developer-friendly. Your data never leaves your computer — no account, no cloud, no telemetry.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          Download
+        </a>
+        <a class="btn btn-ghost" href="#features">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          See features
+        </a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Works fully offline</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No account required</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No account, no cloud</span>
+      </div>
+    </div>
+
+    <!-- Auto-playing app showcase: cycles Data → Canvas → Semantic → Plugins → Palettes -->
+    <div class="mock" id="hero-mock" aria-hidden="true">
+      <div class="mock-bar"><i></i><i></i><i></i><span class="tt" id="mock-ttl">Q2-revenue.mybi — Canvas</span></div>
+      <div class="mock-progress"><i id="mock-prog"></i></div>
+      <div class="mock-body">
+        <div class="mock-rail">
+          <span class="rail-pill" id="rail-pill" style="transform:translateY(38px)"></span>
+          <div class="mr-ic" title="Data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+          <div class="mr-ic on" title="Canvas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M3 10h6"/></svg></div>
+          <div class="mr-ic" title="Semantic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="7" height="6" rx="1"/><rect x="14" y="14" width="7" height="6" rx="1"/><path d="M6.5 10v3a2 2 0 0 0 2 2H14"/></svg></div>
+          <div class="mr-ic" title="Plugins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3v2.5a1.5 1.5 0 0 0 3 0V3h4a1 1 0 0 1 1 1v4h2.5a1.5 1.5 0 0 1 0 3H18v4a1 1 0 0 1-1 1h-4v-2.5a1.5 1.5 0 0 0-3 0V20H6a1 1 0 0 1-1-1v-4H2.5a1.5 1.5 0 0 1 0-3H5V4a1 1 0 0 1 1-1h4Z"/></svg></div>
+          <div class="mr-ic" title="Palettes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 10-10c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg></div>
+        </div>
+        <div class="mock-stage">
+
+          <!-- Data -->
+          <div class="mock-slide" data-slide="data">
+            <div class="mock-pad">
+              <p class="side-title">Data · sales_2026</p>
+              <table class="mini-tbl">
+                <tr><th>Region</th><th>Units</th><th>Revenue</th></tr>
+                <tr><td>East</td><td>120</td><td>$48,000</td></tr>
+                <tr><td>West</td><td>90</td><td>$36,500</td></tr>
+                <tr><td>North</td><td>150</td><td>$61,200</td></tr>
+                <tr><td>South</td><td>60</td><td>$22,800</td></tr>
+                <tr><td>East</td><td>110</td><td>$44,100</td></tr>
+                <tr><td>West</td><td>130</td><td>$52,600</td></tr>
+                <tr><td>North</td><td>75</td><td>$27,300</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Canvas (default) -->
+          <div class="mock-slide on" data-slide="canvas">
+            <div class="mock-canvas">
+              <div class="card-mini kpi"><span class="lbl">Revenue</span><span class="num g">$4.82M</span></div>
+              <div class="card-mini kpi"><span class="lbl">Margin</span><span class="num">38.4%</span></div>
+              <div class="card-mini span-2">
+                <span class="lbl">Revenue by region</span>
+                <div class="bars"><span style="height:40%"></span><span style="height:72%"></span><span style="height:55%"></span><span style="height:88%"></span><span style="height:63%"></span><span style="height:48%"></span></div>
+              </div>
+              <div class="card-mini"><span class="lbl">Mix</span><div class="donut"></div></div>
+              <div class="card-mini">
+                <span class="lbl">Trend</span>
+                <svg class="spark" viewBox="0 0 120 60" preserveAspectRatio="none"><polyline points="0,48 20,40 40,44 60,28 80,32 100,16 120,10" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Semantic -->
+          <div class="mock-slide" data-slide="semantic">
+            <div class="mock-pad">
+              <p class="side-title">Model · relationships</p>
+              <svg class="mini-model" viewBox="0 0 240 160" font-family="Inter, sans-serif">
+                <line x1="60" y1="64" x2="120" y2="104" stroke="#7c5cff" stroke-width="2" opacity=".7"/>
+                <line x1="180" y1="64" x2="120" y2="104" stroke="#7c5cff" stroke-width="2" opacity=".7"/>
+                <g>
+                  <rect x="12" y="20" width="96" height="46" rx="8" fill="#0e1726" stroke="#1e2838"/>
+                  <text x="24" y="39" fill="#e7eef7" font-size="11">regions</text>
+                  <line x1="12" y1="47" x2="108" y2="47" stroke="#18212f"/>
+                  <text x="24" y="60" fill="#97a6bb" font-size="9">region · key</text>
+                </g>
+                <g>
+                  <rect x="132" y="20" width="96" height="46" rx="8" fill="#0e1726" stroke="#1e2838"/>
+                  <text x="144" y="39" fill="#e7eef7" font-size="11">products</text>
+                  <line x1="132" y1="47" x2="228" y2="47" stroke="#18212f"/>
+                  <text x="144" y="60" fill="#97a6bb" font-size="9">product · key</text>
+                </g>
+                <g>
+                  <rect x="72" y="104" width="96" height="50" rx="8" fill="#0e1726" stroke="#7c5cff"/>
+                  <text x="84" y="123" fill="#e7eef7" font-size="11">sales</text>
+                  <line x1="72" y1="131" x2="168" y2="131" stroke="#18212f"/>
+                  <text x="84" y="145" fill="#97a6bb" font-size="9">region · product · revenue</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Plugins -->
+          <div class="mock-slide" data-slide="plugins">
+            <div class="mock-pad">
+              <p class="side-title">Plugins · installed</p>
+              <div class="plug"><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h6a3 3 0 0 1 0 6H9"/></svg></span><div><div class="pn">Git <span class="badge-en">Enabled</span></div><div class="pd">v1.0</div></div></div>
+              <p class="side-title" style="margin-top:12px">Marketplace</p>
+              <div class="plug"><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3v2.5a1.5 1.5 0 0 0 3 0V3h4a1 1 0 0 1 1 1v4h2.5a1.5 1.5 0 0 1 0 3H18v4a1 1 0 0 1-1 1h-4v-2.5a1.5 1.5 0 0 0-3 0V20H6a1 1 0 0 1-1-1v-4H2.5a1.5 1.5 0 0 1 0-3H5V4a1 1 0 0 1 1-1h4Z"/></svg></span><div><div class="pn">Sandbox demo <span class="badge-cm">Community</span></div><div class="pd">Reference plugin</div></div></div>
+            </div>
+          </div>
+
+          <!-- Palettes -->
+          <div class="mock-slide" data-slide="palettes">
+            <div class="mock-pad">
+              <p class="side-title">Palettes · installed</p>
+              <div class="prow">MyBI <span class="mini"><i style="background:#7c5cff"></i><i style="background:#4f8cff"></i><i style="background:#22d3ee"></i><i style="background:#36d399"></i></span></div>
+              <div class="prow">My Organisation Palette <span class="mini"><i style="background:#0ea5e9"></i><i style="background:#6366f1"></i><i style="background:#14b8a6"></i><i style="background:#f59e0b"></i></span></div>
+              <p class="side-title" style="margin-top:12px">Marketplace</p>
+              <div class="prow">Organisation X Palette <span class="mini"><i style="background:#ef4444"></i><i style="background:#f97316"></i><i style="background:#facc15"></i><i style="background:#84cc16"></i></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="mock-cap">
+        <span class="cap-txt" id="mock-cap"><b>Canvas</b> — build dashboards</span>
+        <span class="cap-dots"><i></i><i class="on"></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">What's inside</span>
+      <h2 class="sec-title">From raw files to a shared dashboard</h2>
+      <p class="sec-sub">Every capability is a self-contained block over one typed API — lightweight core, no bloat.</p>
+    </div>
+    <div class="features">
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></div>
+        <h3>Get data</h3>
+        <p>CSV, JSON, Parquet &amp; spreadsheets, plus SQL databases &amp; REST APIs. A guided Get-Data wizard with live preview and visual transforms — your original file is never modified.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="5" rx="1"/><rect x="14" y="8" width="7" height="5" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><path d="M10 5.5h2.5a1.5 1.5 0 0 1 1.5 1.5v3.5M10 18.5h2.5a1.5 1.5 0 0 0 1.5-1.5v-3.5"/></svg></div>
+        <h3>Model &amp; formulas</h3>
+        <p>Build relationships visually with data-verified auto-detect, then write measures in a clear formula language — ~80 verified functions with autocomplete and live validation.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>One Calc Engine</h3>
+        <p>Every number runs through a single compute core. A pie slice that reads 95% reads 95% everywhere — verified by golden-number tests, by construction.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18"/><path d="M8 13l2.5 2.5L16 11" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Charts &amp; canvas</h3>
+        <p>40 chart kinds across two native engines — bar to sankey, calendar, geo maps and 3D — on a zoomable canvas with drag-resize cards, cross-filtering, multi-sheet tabs, slicers, KPI tiles and themes. Publish once — it auto-scales to any screen.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 8-9"/><path d="M14 6h5v5"/></svg></div>
+        <h3>Analytics &amp; AI</h3>
+        <p>Trends, forecasts and correlation on top of the engine — plus a native, on-device AI assistant that chats about your data and documents. Every data access is consent-gated, and nothing is sent to a cloud.</p>
+      </div>
+
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 8-4 4 4 4"/><path d="m17 8 4 4-4 4"/><path d="m14 4-4 16"/></svg></div>
+        <h3>Extend everything</h3>
+        <p>Signed plugins, a colour-palette marketplace, and a sandboxed SDK for custom blocks and Python / R scripts — third parties use the very same API.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST & CONTROL ===================== -->
+<section id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Trust &amp; control</span>
+      <h2 class="sec-title">Your data stays yours</h2>
+      <p class="sec-sub">MyBI runs on your machine, end to end — no account, no cloud, no telemetry. Nothing leaves your computer unless you choose to export it.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Numbers that reconcile</h3>
+        <p>Every figure runs through one Calc Engine, so a total reads the same in every visual — checked by golden-number tests, not taken on faith.</p>
+      </div>
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></div>
+        <h3>No lock-in</h3>
+        <p>Your projects live in portable <code>.mybi</code> files — back them up, move them between machines and keep them, with or without MyBI.</p>
+      </div>
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 7.7 8 10 4.6-2.3 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Genuine plugins</h3>
+        <p>Every plugin carries an Ed25519 signature the app checks on install — so you know each one is authentic and untampered before it runs.</p>
+      </div>
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></div>
+        <h3>Sandboxed by design</h3>
+        <p>Plugins run isolated, with declared permissions and no network by default — you see and control exactly what each one can touch.</p>
+      </div>
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>Fully offline</h3>
+        <p>No sign-up, no sync, no tracking. Open the app and work — everything happens on your computer, even with the network off.</p>
+      </div>
+
+      <div class="feature feature--open">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 10-10c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg></div>
+        <h3>Plugins &amp; palettes</h3>
+        <p>Extend MyBI from the in-app marketplace — add charts, connectors and colour palettes, each installed only with your permission.</p>
+      </div>
+
+    </div>
+
+    <p class="trust-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      <span><b>Private by design.</b> MyBI keeps your data on your device — no account to create, nothing uploaded, nothing shared. Share a dashboard live from your own server, as a portable encrypted snapshot, or as a static page — in every case only <em>aggregated</em> results leave; raw rows never do.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== DOWNLOAD ===================== -->
+<section id="download" class="download">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Get MyBI</span>
+      <h2 class="sec-title">Download for your platform</h2>
+      <p class="sec-sub">Native installers and store listings are on the way — pick your platform and the buttons light up as builds go public.</p>
+    </div>
+
+    <div class="dl-grid">
+      <!-- macOS -->
+      <div class="dl-card">
+        <div class="os"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.7 2.3-1.6 2.8-.4 6.9 1.1 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9ZM14.1 5.6c.6-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.5 2.8-1.3Z"/></svg></div>
+        <h3>macOS</h3>
+        <p class="desc">Universal <code>.dmg</code> / <code>.pkg</code> — Apple Silicon &amp; Intel.</p>
+        <span class="dl-btn">Download <span class="soon">Coming soon</span></span>
+      </div>
+
+      <!-- Windows -->
+      <div class="dl-card">
+        <div class="os"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.4 10.5 4.3v7.2H3V5.4Zm0 13.2 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21V12.5h-9.5v7.3Zm0-15.6V11.5H21V3l-9.5 1.2Z"/></svg></div>
+        <h3>Windows</h3>
+        <p class="desc"><code>.exe</code> installer with bundled system webview.</p>
+        <span class="dl-btn">Download <span class="soon">Coming soon</span></span>
+      </div>
+
+      <!-- Linux -->
+      <div class="dl-card">
+        <div class="os"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1.9 0-3 1.7-3 3.6 0 1.2.1 2.2-.6 3.3-.8 1.2-2.3 2.7-2.9 4.7-.3 1-.1 1.8.2 2.1-.4.3-.7.8-.5 1.5.1.5.5.8 1 1 .4.2.5.4.5.8 0 .5.4.9 1.1 1.1.9.2 2.2.2 3.2 1 .6.5 1.5.5 2.1 0 1-.8 2.3-.8 3.2-1 .7-.2 1.1-.6 1.1-1.1 0-.4.1-.6.5-.8.5-.2.9-.5 1-1 .2-.7-.1-1.2-.5-1.5.3-.3.5-1.1.2-2.1-.6-2-2.1-3.5-2.9-4.7-.7-1.1-.6-2.1-.6-3.3C15 3.7 13.9 2 12 2Zm-1.3 4.2c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9Zm2.6 0c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9ZM12 9.3c.9 0 1.9.5 2 .9.1.3-.6.7-1 1-.4.2-.6.5-1 .5s-.6-.3-1-.5c-.4-.3-1.1-.7-1-1 .1-.4 1.1-.9 2-.9Z"/></svg></div>
+        <h3>Linux</h3>
+        <p class="desc"><code>.AppImage</code> &amp; <code>.deb</code> packages.</p>
+        <span class="dl-btn">Download <span class="soon">Coming soon</span></span>
+      </div>
+
+      <!-- Mac App Store -->
+      <div class="dl-card store">
+        <div class="os"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.7 2.3-1.6 2.8-.4 6.9 1.1 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9ZM14.1 5.6c.6-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.5 2.8-1.3Z"/></svg></div>
+        <h3>Mac App Store</h3>
+        <p class="desc">One-click install &amp; auto-updates.</p>
+        <span class="dl-btn">View <span class="soon">Coming soon</span></span>
+      </div>
+
+      <!-- Microsoft Store -->
+      <div class="dl-card store">
+        <div class="os"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.4 10.5 4.3v7.2H3V5.4Zm0 13.2 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21V12.5h-9.5v7.3Zm0-15.6V11.5H21V3l-9.5 1.2Z"/></svg></div>
+        <h3>Microsoft Store</h3>
+        <p class="desc">One-click install &amp; auto-updates.</p>
+        <span class="dl-btn">View <span class="soon">Coming soon</span></span>
+      </div>
+
+    </div>
+
+    <p class="dl-note">Want a heads-up when builds land? Check back here — installers post as they go public.</p>
+  </div>
+</section>
+
+<!-- ===================== CTA BAND ===================== -->
+<section class="wrap">
+  <div class="cta-band">
+    <h2>Built to be verified, not just trusted.</h2>
+    <p>The core platform, Calc Engine, a 40-chart canvas, analytics and the on-device AI assistant are already here — with full GIS, a palette marketplace and more on the way.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="roadmap.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h12"/></svg>
+        Explore the roadmap
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/My-BI" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.13-.29-.52-1.46.1-3.05 0 0 .97-.31 3.2 1.18a11 11 0 0 1 5.82 0c2.22-1.5 3.19-1.18 3.19-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+        Star the repo
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo" src="assets/logo.svg" alt="" aria-hidden="true" />
+          <span>My<b>BI</b></span>
+        </a>
+        <p>Analytics &amp; geospatial intelligence that stays on your machine — built block-first, runs fully offline.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h4>Developers</h4>
+          <a href="build-plugin.html">Build a plugin</a>
+          <a href="verify.html">Get verified</a>
+          <a href="build-plugin.html">SDK</a>
+        </div>
+        <div class="foot-col">
+          <h4>Project</h4>
+          <a href="about.html">About</a>
+          <a href="roadmap.html">Roadmap</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> MyBI. Business intelligence that stays on your machine.</span>
+      <span>Private by design · your data stays on your machine.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
