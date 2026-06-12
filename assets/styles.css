@@ -25,6 +25,11 @@
   --maxw: 1140px;
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  /* monochrome buttons: white-on-dark (dark theme) / black-on-light (light theme) */
+  --btn-bg: #e7eef7;
+  --btn-bg-hover: #ffffff;
+  --btn-fg: #0a0e17;
+  --ghost-hover: rgba(255,255,255,.06);
   color-scheme: dark;
 }
 
@@ -42,6 +47,10 @@ html[data-theme="light"] {
   --idle: #9aa9bf;
   --grad-soft: linear-gradient(135deg, rgba(124,92,255,.12), rgba(34,211,238,.08));
   --shadow: 0 24px 60px -28px rgba(23,34,61,.22);
+  --btn-bg: #101b2d;
+  --btn-bg-hover: #1d2c46;
+  --btn-fg: #ffffff;
+  --ghost-hover: rgba(16,27,45,.06);
   color-scheme: light;
 }
 
@@ -111,14 +120,15 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .btn svg { width: 17px; height: 17px; }
-.btn-primary { background: var(--grad); color: #0a0e17; box-shadow: 0 10px 28px -10px rgba(124,92,255,.8); }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 36px -12px rgba(124,92,255,.9); }
-.btn-ghost { background: rgba(124,92,255,.10); border-color: rgba(124,92,255,.32); color: var(--text); }
-.btn-ghost:hover { background: rgba(124,92,255,.18); border-color: rgba(124,92,255,.5); }
+.btn-primary { background: var(--btn-bg); color: var(--btn-fg); box-shadow: 0 10px 26px -14px rgba(0,0,0,.55); }
+.btn-primary:hover { transform: translateY(-1px); background: var(--btn-bg-hover); box-shadow: 0 14px 32px -16px rgba(0,0,0,.6); }
+.btn-ghost { background: transparent; border-color: var(--border); color: var(--text); }
+.btn-ghost:hover { background: var(--ghost-hover); border-color: var(--faint); }
 .btn-sm { padding: 8px 14px; font-size: 13.5px; border-radius: 9px; }
-/* the nav's Download is a .btn-primary inside .nav-links — keep its dark-on-gradient
-   text from being washed out by the generic nav-link colour/hover rules */
-.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: #0a0e17; background: var(--grad); }
+/* the nav's Download is a .btn-primary inside .nav-links — keep its own colours
+   from being washed out by the generic nav-link colour/hover rules */
+.nav-links a.btn-primary { color: var(--btn-fg); background: var(--btn-bg); }
+.nav-links a.btn-primary:hover { color: var(--btn-fg); background: var(--btn-bg-hover); }
 
 /* ---------- Hero ---------- */
 .hero { padding: 84px 0 56px; position: relative; }
@@ -649,10 +659,10 @@ footer { border-top: 1px solid var(--border-soft); padding: 48px 0 40px; margin-
 }
 
 /* ---------- Theme switcher (Light / System / Dark) ---------- */
-.theme-seg { display: inline-flex; align-items: center; gap: 2px; padding: 3px; margin-left: 6px; border: 1px solid var(--border); border-radius: 999px; background: rgba(124,92,255,.06); }
+.theme-seg { display: inline-flex; align-items: center; gap: 2px; padding: 3px; margin-left: 6px; border: 1px solid var(--border); border-radius: 999px; background: transparent; }
 .theme-seg button { width: 26px; height: 26px; border-radius: 999px; border: none; background: transparent; color: var(--faint); display: grid; place-items: center; cursor: pointer; padding: 0; transition: color .15s, background .15s; }
-.theme-seg button:hover { color: var(--text); }
-.theme-seg button.on { background: var(--grad); color: #0a0e17; }
+.theme-seg button:hover { color: var(--text); background: var(--ghost-hover); }
+.theme-seg button.on { background: var(--btn-bg); color: var(--btn-fg); }
 .theme-seg svg { width: 14px; height: 14px; }
 
 /* ---------- Light-mode page chrome (app windows & code stay dark below) ---------- */
