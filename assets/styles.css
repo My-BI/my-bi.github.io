@@ -343,7 +343,9 @@ h2.sec-title { font-size: clamp(27px, 3.4vw, 38px); letter-spacing: -.025em; mar
 .cta-band .hero-cta { justify-content: center; position: relative; }
 
 /* ---------- Footer ---------- */
-footer { border-top: 1px solid var(--border-soft); padding: 48px 0 40px; margin-top: 40px; }
+/* Opaque coloured footer band — sits ABOVE the fixed neural background (which must not
+   show through it or appear to scroll behind it). */
+footer { position: relative; z-index: 1; background: var(--panel); border-top: 1px solid var(--border); padding: 52px 0 40px; margin-top: 56px; }
 .foot-grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
 .foot-brand { max-width: 320px; }
 .foot-brand p { color: var(--faint); font-size: 14px; margin: 14px 0 0; }

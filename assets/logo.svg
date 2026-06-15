@@ -1,13 +1,28 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f4f6ff" stop-opacity="0.92"/><stop offset="1" stop-color="#cdd6f4" stop-opacity="0.78"/></linearGradient>
-    <linearGradient id="flow" x1="178" y1="0" x2="846" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8b5cf6"/><stop offset="0.5" stop-color="#6d5cf2"/><stop offset="1" stop-color="#2f6df0"/></linearGradient>
-    <radialGradient id="core" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.28"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
-    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/><stop offset="0.4" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141a33"/>
+      <stop offset="1" stop-color="#0a0e1c"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="178" y1="0" x2="846" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="0.5" stop-color="#7c6cf2"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <!-- Luminous crossing: the purple "waist" of the butterfly glows. -->
+    <radialGradient id="core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
   <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="url(#bg)"/>
+
+  <!-- soft glow behind the crossing -->
   <circle cx="512" cy="512" r="210" fill="url(#core)"/>
-  <g fill="none" stroke="url(#flow)" stroke-width="2.1" stroke-linecap="round" stroke-opacity="0.45">
+
+  <!-- Sankey "cross": dense curved flows from the left sources to the right target, crossing at centre. -->
+  <g fill="none" stroke="url(#flow)" stroke-width="2.1" stroke-linecap="round" stroke-opacity="0.4">
     <path d="M216 156 C 512 156 512 868 806 868"/>
     <path d="M216 169.4 C 512 169.4 512 854.6 806 854.6"/>
     <path d="M216 182.9 C 512 182.9 512 841.1 806 841.1"/>
@@ -63,12 +78,15 @@
     <path d="M216 854.6 C 512 854.6 512 169.4 806 169.4"/>
     <path d="M216 868 C 512 868 512 156 806 156"/>
   </g>
+  <!-- a few brighter flows give the crossing its luminous core -->
   <g fill="none" stroke="url(#flow)" stroke-width="3.4" stroke-linecap="round" stroke-opacity="0.85">
     <path d="M216 156 C 512 156 512 868 806 868"/>
     <path d="M216 868 C 512 868 512 156 806 156"/>
     <path d="M216 280 C 512 280 512 744 806 744"/>
     <path d="M216 744 C 512 744 512 280 806 280"/>
   </g>
+
+  <!-- Left = segmented sources; Right = solid target bar (matches the reference). -->
   <g fill="url(#flow)">
     <rect x="178" y="152.5" width="36" height="7" rx="3"/>
     <rect x="178" y="192.8" width="36" height="7" rx="3"/>
@@ -90,7 +108,4 @@
     <rect x="178" y="837.6" width="36" height="7" rx="3"/>
     <rect x="806" y="150" width="20" height="724" rx="10"/>
   </g>
-  <!-- specular gloss + glass rim (the Liquid Glass sheen) -->
-  <path d="M0 0 H1024 V300 Q512 460 0 300 Z" fill="url(#gloss)" opacity="0.6"/>
-  <rect x="6" y="6" width="1012" height="1012" rx="220" ry="220" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="3"/>
 </svg>
