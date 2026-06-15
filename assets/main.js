@@ -107,4 +107,63 @@
     }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
     targets.forEach(function (el) { io.observe(el); });
   }
+
+  // ---- Monochrome neural-network background (drifting nodes + proximity links) ----------
+  if (!reduce) {
+    var nc = document.createElement("canvas");
+    nc.className = "neural-bg";
+    nc.setAttribute("aria-hidden", "true");
+    document.body.appendChild(nc);
+    var ctx = nc.getContext("2d");
+    var DPR = Math.min(2, window.devicePixelRatio || 1);
+    var nodes = [], W = 0, H = 0, LINK = 0;
+    function resize() {
+      W = nc.width = window.innerWidth * DPR;
+      H = nc.height = window.innerHeight * DPR;
+      nc.style.width = window.innerWidth + "px";
+      nc.style.height = window.innerHeight + "px";
+      LINK = 150 * DPR;
+      var count = Math.max(24, Math.min(72, Math.round(window.innerWidth * window.innerHeight / 26000)));
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.18 * DPR, vy: (Math.random() - 0.5) * 0.18 * DPR });
+      }
+    }
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    function tick() {
+      var ink = document.documentElement.dataset.theme === "light" ? "16,27,45" : "255,255,255";
+      ctx.clearRect(0, 0, W, H);
+      var i, a, b;
+      for (i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      }
+      for (a = 0; a < nodes.length; a++) {
+        for (b = a + 1; b < nodes.length; b++) {
+          var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y, d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK) {
+            ctx.strokeStyle = "rgba(" + ink + "," + (0.11 * (1 - d / LINK)).toFixed(3) + ")";
+            ctx.lineWidth = DPR;
+            ctx.beginPath(); ctx.moveTo(nodes[a].x, nodes[a].y); ctx.lineTo(nodes[b].x, nodes[b].y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = "rgba(" + ink + ",0.5)";
+        ctx.beginPath(); ctx.arc(nodes[a].x, nodes[a].y, 1.4 * DPR, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+
+  // ---- Brand disclaimer in every footer ---------------------------------------------
+  document.querySelectorAll(".foot-bottom").forEach(function (fb) {
+    if (fb.querySelector(".foot-disclaimer")) return;
+    var d = document.createElement("span");
+    d.className = "foot-disclaimer";
+    d.innerHTML = "MyBI means “My Own Business Intelligence” — an independent project, not affiliated with MySQL or with the “MyBI” app on Google Play (MyBI Brazil).";
+    fb.appendChild(d);
+  });
 })();

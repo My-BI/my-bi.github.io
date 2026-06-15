@@ -11,18 +11,20 @@
   --text: #e7eef7;
   --muted: #97a6bb;
   --faint: #6b7a90;
-  --brand: #7c5cff;
-  --brand-2: #22d3ee;
-  --brand-3: #4f8cff;
-  --good: #36d399;
-  --warn: #fbbf24;
+  /* Monochrome: brand accents are greys/near-white (no hue) so the whole site reads
+     black-and-white; the neural-net background carries the motion. */
+  --brand: #aab2c0;
+  --brand-2: #e7eef7;
+  --brand-3: #828b9c;
+  --good: #d6dde8;
+  --warn: #b9c2d0;
   --idle: #5b6b82;
-  --grad: linear-gradient(135deg, #7c5cff 0%, #4f8cff 45%, #22d3ee 100%);
-  --grad-soft: linear-gradient(135deg, rgba(124,92,255,.18), rgba(34,211,238,.12));
+  --grad: linear-gradient(135deg, #ffffff 0%, #aeb6c5 100%);
+  --grad-soft: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.045));
   --shadow: 0 24px 60px -20px rgba(0,0,0,.7);
   --radius: 16px;
   --radius-sm: 10px;
-  --maxw: 1140px;
+  --maxw: 1320px;
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   /* monochrome buttons: white-on-dark (dark theme) / black-on-light (light theme) */
@@ -45,7 +47,13 @@ html[data-theme="light"] {
   --muted: #4a5a72;
   --faint: #75849a;
   --idle: #9aa9bf;
-  --grad-soft: linear-gradient(135deg, rgba(124,92,255,.12), rgba(34,211,238,.08));
+  --brand: #5b6472;
+  --brand-2: #101b2d;
+  --brand-3: #6b7585;
+  --good: #3a4150;
+  --warn: #5b6472;
+  --grad: linear-gradient(135deg, #101b2d 0%, #5b6472 100%);
+  --grad-soft: linear-gradient(135deg, rgba(16,27,45,.08), rgba(16,27,45,.04));
   --shadow: 0 24px 60px -28px rgba(23,34,61,.22);
   --btn-bg: #101b2d;
   --btn-bg-hover: #1d2c46;
@@ -69,17 +77,29 @@ body {
   overflow-x: hidden;
 }
 
-/* ambient background glow */
+/* ambient background glow — monochrome (subtle light pools, no hue) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background:
-    radial-gradient(900px 500px at 78% -8%, rgba(124,92,255,.16), transparent 60%),
-    radial-gradient(800px 520px at 8% 8%, rgba(34,211,238,.10), transparent 55%),
-    radial-gradient(700px 700px at 50% 120%, rgba(79,140,255,.10), transparent 60%);
+    radial-gradient(900px 500px at 78% -8%, rgba(255,255,255,.05), transparent 60%),
+    radial-gradient(800px 520px at 8% 8%, rgba(255,255,255,.035), transparent 55%),
+    radial-gradient(700px 700px at 50% 120%, rgba(255,255,255,.03), transparent 60%);
 }
+html[data-theme="light"] body::before {
+  background:
+    radial-gradient(900px 500px at 78% -8%, rgba(16,27,45,.05), transparent 60%),
+    radial-gradient(800px 520px at 8% 8%, rgba(16,27,45,.035), transparent 55%),
+    radial-gradient(700px 700px at 50% 120%, rgba(16,27,45,.03), transparent 60%);
+}
+/* Animated monochrome neural-network background (added by main.js; sits behind content,
+   above the ambient pools). Pure greyscale — the site's one moving element. */
+.neural-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .55; }
+@media (prefers-reduced-motion: reduce) { .neural-bg { display: none; } }
+/* Brand disclaimer line injected into every footer. */
+.foot-disclaimer { display: block; width: 100%; margin-top: 6px; color: var(--faint); font-size: 12px; }
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -686,6 +706,32 @@ html[data-theme="light"] :is(.mock, .demo-win, .studio-win, .codeblock) {
 
 /* The about-page family grid: four cards read best 2×2 */
 .tiers.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+/* ---------- Overview: per-product sections + "more" links ---------- */
+.sec-more { text-align: center; margin-top: 28px; }
+.page-hero .badge-soon { margin-left: 10px; }
+
+/* ---------- Comparison table (overview) ---------- */
+.cmp-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.cmp { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 820px; }
+.cmp th, .cmp td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+.cmp thead th { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); background: var(--panel-2); }
+.cmp tbody th { color: var(--text); font-weight: 600; white-space: nowrap; font-size: 13.5px; }
+.cmp td { color: var(--muted); }
+.cmp .col-us { background: rgba(124,92,255,.07); color: var(--text); }
+.cmp thead th.col-us { color: var(--brand-2); }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: none; }
+.cmp-note { color: var(--faint); font-size: 12.5px; margin-top: 14px; }
+.cmp b.y { color: var(--good); font-weight: 700; }
+
+/* ---------- Forensic page: the checks table ---------- */
+.checks { width: 100%; border-collapse: collapse; font-size: 14px; }
+.checks th, .checks td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+.checks thead th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); }
+.checks td:first-child { color: var(--text); }
+.checks td:last-child { color: var(--muted); }
+.checks tr:last-child td { border-bottom: none; }
+.checks-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); overflow: hidden; }
 
 /* the hidden attribute must always win, even over flex/grid panels */
 [hidden] { display: none !important; }
