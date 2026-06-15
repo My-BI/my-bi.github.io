@@ -13,7 +13,7 @@
 <meta property="og:title" content="MyBI — Business intelligence that stays on your machine" />
 <meta property="og:description" content="BI for macOS, Windows & Linux. Your data stays on your machine and runs fully offline — no account, no cloud." />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="assets/styles.css?v=3" />
+<link rel="stylesheet" href="assets/styles.css?v=4" />
 <script>/* pre-apply the saved theme so the page never flashes the wrong one */
 try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m;}catch(e){}</script>
 </head>
@@ -47,9 +47,9 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span> Private · Cross-platform · Offline</span>
-      <h1 class="hero-title">Business intelligence that <span class="g">stays on your machine</span>.</h1>
-      <p class="hero-sub">Powerful dashboards, deep analytics and geospatial intelligence — built block-first and developer-friendly. Your data never leaves your computer — no account, no cloud, no telemetry.</p>
+      <span class="eyebrow"><span class="dot"></span> Dashboards · Analytics · Geospatial · AI</span>
+      <h1 class="hero-title">Business intelligence, <span class="g">built block-first</span>.</h1>
+      <p class="hero-sub">Powerful dashboards, deep analytics and geospatial intelligence — with a native AI assistant and 40+ chart types, built block-first and developer-friendly.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#download">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
@@ -61,44 +61,32 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
         </a>
       </div>
       <div class="hero-meta">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Works fully offline</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No account required</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No account, no cloud</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 40+ chart types</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Deep analytics &amp; maps</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Native AI assistant</span>
       </div>
     </div>
 
     <!-- Auto-playing app showcase: cycles Data → Canvas → Semantic → Plugins → Palettes -->
     <div class="mock" id="hero-mock" aria-hidden="true">
-      <div class="mock-bar"><i></i><i></i><i></i><span class="tt">Energy.mybi — Canvas</span></div>
-      <div class="mock-dash">
-        <div class="dk-kpis">
-          <div class="dk-kpi"><span class="dk-k-t">Grid use</span><span class="dk-k-v">91.5<small>kWh</small></span><span class="dk-k-d">▲ 4%</span></div>
-          <div class="dk-kpi"><span class="dk-k-t">Cost</span><span class="dk-k-v">£21.3</span><span class="dk-k-d">▼ 2%</span></div>
-          <div class="dk-kpi"><span class="dk-k-t">Battery</span><span class="dk-k-v">13.6<small>kWh</small></span><span class="dk-k-d">▲ 9%</span></div>
-          <div class="dk-kpi"><span class="dk-k-t">Storage</span><span class="dk-k-v">118<small>kWh</small></span><span class="dk-k-d">—</span></div>
-        </div>
-        <div class="dk-charts">
-          <div class="dk-card dk-wide">
-            <span class="dk-c-t">Daily grid consumption</span>
-            <svg class="dk-line" viewBox="0 0 240 88" preserveAspectRatio="none">
-              <polyline points="0,16 30,40 60,34 90,56 120,52 150,70 180,64 210,76 240,80 240,88 0,88" fill="currentColor" opacity=".09" stroke="none"/>
-              <polyline points="0,16 30,40 60,34 90,56 120,52 150,70 180,64 210,76 240,80" fill="none" stroke="currentColor" stroke-width="2.2"/>
-            </svg>
+      <div class="mock-bar"><i></i><i></i><i></i><span class="tt">MyBI</span></div>
+      <div class="mock-app">
+        <div class="mock-side"><span class="ms-ic on"></span><span class="ms-ic"></span><span class="ms-ic"></span><span class="ms-ic"></span><span class="ms-ic"></span></div>
+        <div class="mock-main">
+          <div class="dk-kpis">
+            <div class="dk-kpi"><span class="dk-k-t">Grid use</span><span class="dk-k-v">91.5<small>kWh</small></span><span class="dk-k-d">▲ 4%</span></div>
+            <div class="dk-kpi"><span class="dk-k-t">Cost</span><span class="dk-k-v">£21.3</span><span class="dk-k-d">▼ 2%</span></div>
+            <div class="dk-kpi"><span class="dk-k-t">Battery</span><span class="dk-k-v">13.6<small>kWh</small></span><span class="dk-k-d">▲ 9%</span></div>
+            <div class="dk-kpi"><span class="dk-k-t">Storage</span><span class="dk-k-v">118<small>kWh</small></span><span class="dk-k-d">—</span></div>
           </div>
-          <div class="dk-card">
-            <span class="dk-c-t">Cost by home</span>
-            <div class="dk-bars"><i style="height:92%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:63%"></i><i style="height:55%"></i><i style="height:42%"></i></div>
-          </div>
-          <div class="dk-card">
-            <span class="dk-c-t">By tariff zone</span>
-            <svg class="dk-pie" viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="currentColor" stroke-width="6" opacity=".16"/>
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="64 36" stroke-dashoffset="25"/>
-            </svg>
+          <div class="dk-charts">
+            <div class="dk-card dk-wide"><span class="dk-c-t">Daily grid consumption</span><svg class="dk-line" viewBox="0 0 240 88" preserveAspectRatio="none"><polyline points="0,16 30,40 60,34 90,56 120,52 150,70 180,64 210,76 240,80 240,88 0,88" fill="currentColor" opacity=".09" stroke="none"/><polyline points="0,16 30,40 60,34 90,56 120,52 150,70 180,64 210,76 240,80" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></div>
+            <div class="dk-card"><span class="dk-c-t">Cost by home</span><div class="dk-bars"><i style="height:92%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:63%"></i><i style="height:55%"></i><i style="height:42%"></i></div></div>
+            <div class="dk-card"><span class="dk-c-t">By tariff zone</span><svg class="dk-pie" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="currentColor" stroke-width="6" opacity=".16"/><circle cx="18" cy="18" r="15.9" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="64 36" stroke-dashoffset="25"/></svg></div>
           </div>
         </div>
       </div>
-      <div class="mock-cap"><span class="cap-txt"><b>Canvas</b> — your dashboard, on your machine</span></div>
+      <div class="mock-foot"><span class="mf-tab on">Sheet 1</span><span class="mf-tab">Sheet 2</span><span class="mf-tab">Sheet 3</span><span class="mf-status">1 dataset · 240 rows</span></div>
     </div>
   </div>
 </section>
@@ -322,6 +310,6 @@ try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.
   </div>
 </footer>
 
-<script src="assets/main.js?v=3"></script>
+<script src="assets/main.js?v=4"></script>
 </body>
 </html>

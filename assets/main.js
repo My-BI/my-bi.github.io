@@ -158,6 +158,16 @@
     tick();
   }
 
+  // ---- Unify every footer: ensure a "Legal" column with Privacy + Terms links --------
+  document.querySelectorAll(".foot-cols").forEach(function (fc) {
+    var has = [].some.call(fc.querySelectorAll("h4"), function (h) { return h.textContent.trim() === "Legal"; });
+    if (has) return;
+    var col = document.createElement("div");
+    col.className = "foot-col";
+    col.innerHTML = '<h4>Legal</h4><a href="privacy-policy">Privacy Policy</a><a href="terms-of-service">Terms of Service</a>';
+    fc.appendChild(col);
+  });
+
   // ---- Brand disclaimer in every footer ---------------------------------------------
   document.querySelectorAll(".foot-bottom").forEach(function (fb) {
     if (fb.querySelector(".foot-disclaimer")) return;
