@@ -1,7 +1,8 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
   <!-- MyBI mark: a pie whose top-right 25% quarter is a bar chart; the other 270deg
-       are three unequal slices. Matches the app icon (logo-source-pie.svg). Full-bleed
-       rounded tile so it reads cleanly as a favicon and a site brand chip. -->
+       are three unequal slices. Uses the OFFICIAL app-icon foreground glyph
+       (logo-foreground.svg — white seams + white centre), set on the dark rounded
+       tile so it stays legible as a favicon and a site brand chip on any background. -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1a2142"/>
@@ -28,8 +29,8 @@
   <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="url(#bg)"/>
   <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="url(#glow)"/>
 
-  <!-- Three unequal slices (270deg). Centre (512,512) r=300. Thin gaps separate parts. -->
-  <g stroke="#0a0e1c" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Three unequal slices (270deg). Centre (512,512) r=300. Soft white seams (foreground glyph). -->
+  <g stroke="#ffffff" stroke-opacity="0.5" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
     <path d="M512 512 L812 512 A300 300 0 0 1 339.9 757.8 Z" fill="url(#pa)"/>
     <path d="M512 512 L339.9 757.8 A300 300 0 0 1 252.2 362 Z" fill="url(#pb)"/>
     <path d="M512 512 L252.2 362 A300 300 0 0 1 512 212 Z" fill="url(#pc)"/>
@@ -43,6 +44,6 @@
     <rect x="760" y="412" width="40" height="88" rx="12"/>
   </g>
 
-  <!-- Centre pivot -->
-  <circle cx="512" cy="512" r="30" fill="#0a0e1c" stroke="#7c6cf2" stroke-width="7"/>
+  <!-- Centre pivot (foreground glyph: soft white) -->
+  <circle cx="512" cy="512" r="28" fill="#ffffff" fill-opacity="0.92"/>
 </svg>
