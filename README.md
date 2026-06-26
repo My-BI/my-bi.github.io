@@ -1,6 +1,6 @@
 # my-bi.github.io
 
-The customer-facing website for **MyBI** — an open-source, cross-platform analytics
+The customer-facing website for **MyBI** — a cross-platform analytics
 & geospatial intelligence platform.
 
 🔗 **Live site:** https://my-bi.github.io/
@@ -35,4 +35,4 @@ This repo is named `my-bi.github.io`, so GitHub Pages serves it at the org root:
 - Download buttons are intentionally in a **“Coming soon”** state (macOS, Windows,
   Linux, Mac App Store, Microsoft Store) until installers are published. When the
   first tagged release lands, swap each `.dl-btn` span for a real link.
-- License: Apache-2.0 (matches the MyBI app).
+- License: Proprietary (matches the MyBI app).
