@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>MyBI — Verification</title>
+  <!--
+    Turnstile host page for the MyBI desktop app.
+
+    WHY THIS EXISTS: the desktop app serves its UI from the custom scheme tauri://localhost
+    (and http://tauri.localhost on Windows). Cloudflare Turnstile's origin validator only
+    understands http/https/ws/wss/file, it returns null for tauri://, so the challenge can
+    never validate its origin and fails deterministically with error 600010. The fix is to
+    render the widget from a REAL https origin (this page, on my-bi.github.io) inside an
+    iframe and hand the solved token back to the app via postMessage.
+
+    The MyBI sitekey below is PUBLIC by design. For this to pass, my-bi.github.io must be on
+    the sitekey's allowed Hostname list (Cloudflare dashboard → Turnstile → the widget →
+    Hostname Management). The secret key never lives here, Supabase/GoTrue verifies the
+    token server-side.
+  -->
+  <style>
+    /* NOT overflow:hidden, Cloudflare's error / "Troubleshoot" panel is taller than the widget,
+       and the parent iframe grows to the height we report below so it stays fully readable. */
+    html, body { margin: 0; padding: 0; background: transparent; }
+    #w { display: inline-block; }
+  </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+  <div id="w"></div>
+  <script>
+    (function () {
+      var SITE_KEY = "0x4AAAAAAD5siVe-AA5O2ORH";
+      var params = new URLSearchParams(location.search);
+      var theme = params.get("theme") || "auto";   // "light" | "dark" | "auto"
+      var size = params.get("size") || "normal";
+
+      // Post to the app parent. targetOrigin "*" is safe here: the token is single-use +
+      // short-lived and bound to our sitekey and the PARENT validates event.origin ===
+      // https://my-bi.github.io before trusting anything. The parent origin (tauri://localhost)
+      // can't be spelled out reliably, so "*" outbound is the pragmatic Cloudflare pattern.
+      function post(msg) {
+        msg.source = "mybi-turnstile";
+        try { parent.postMessage(msg, "*"); } catch (e) { /* no parent */ }
+      }
+
+      var tries = 0;
+      function render() {
+        if (!window.turnstile) {
+          if (tries++ > 200) { post({ type: "error", code: "script-load" }); return; }
+          return void setTimeout(render, 50);
+        }
+        try {
+          window.turnstile.render("#w", {
+            sitekey: SITE_KEY,
+            theme: theme,
+            size: size,
+            callback: function (token) { post({ type: "token", token: token }); },
+            "expired-callback": function () { post({ type: "expired" }); },
+            "timeout-callback": function () { post({ type: "expired" }); },
+            "error-callback": function (code) { post({ type: "error", code: String(code || "") }); return true; }
+          });
+          post({ type: "ready" });
+        } catch (e) {
+          post({ type: "error", code: "render" });
+        }
+      }
+      render();
+
+      // Report our content height to the app so the parent iframe grows to fit Cloudflare's error
+      // / "Troubleshoot" panel (taller than the compact widget) instead of clipping it unreadably.
+      function reportSize() {
+        var w = document.getElementById("w");
+        var h = Math.max(document.body.scrollHeight, w ? w.offsetHeight : 0, 65);
+        post({ type: "resize", height: h });
+      }
+      if (window.ResizeObserver) { try { new ResizeObserver(reportSize).observe(document.body); } catch (e) {} }
+      window.addEventListener("load", reportSize);
+      reportSize();
+    })();
+  </script>
+</body>
+</html>

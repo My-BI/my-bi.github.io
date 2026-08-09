@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyBI — FAQ</title>
+<meta name="description" content="Answers about MyBI: which platforms it runs on, where your data is stored, how the AI assistant handles it, encryption, exports and system requirements." />
+<meta name="theme-color" content="#0a0e17" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- All three are the same mark at the same crop. They were not: the touch icon pointed at the
+     Icon Composer FOREGROUND layer, which carries 20% of safe-area padding on every side because
+     macOS supplies the tile behind it. Standing alone in a tab it read as a small logo adrift in a
+     box, so whichever icon the browser reached for decided what the site looked like. -->
+<link rel="icon" type="image/svg+xml" href="assets/logo-foreground.svg?v=4" />
+<link rel="icon" href="/favicon.ico?v=4" sizes="16x16 32x32 48x48 64x64" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4" />
+<meta property="og:title" content="MyBI — FAQ" />
+<meta property="og:description" content="Answers about platforms, privacy, on-device AI, encryption and system requirements." />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="assets/styles.css?v=50" />
+<style>
+  .legal{max-width:820px;margin:0 auto}
+  .legal h2{font-size:1.32rem;margin:28px 0 10px;color:var(--text)}
+  .legal p.legal li{color:var(--muted);line-height:1.72;font-size:1rem}
+  .legal a{color:var(--brand-2)}
+  .legal strong{color:var(--text)}
+  .faq{margin-top:8px}
+  .faq details{border-bottom:1px solid var(--border-soft);padding:2px 0;margin:0}
+  .faq summary{cursor:pointer;list-style:none;padding:13px 0;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .faq summary:hover{color:var(--brand-2)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--faint);font-weight:400;font-size:1.3rem;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);line-height:1.7;margin:0 0 15px}
+  .req th.req td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border-soft);font-size:.95rem;color:var(--muted);vertical-align:top}
+</style>
+<script>/* pre-apply the saved theme so the page never flashes the wrong one */
+try{var m=localStorage.getItem("mybi-theme")||"system";document.documentElement.dataset.theme=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m;}catch(e){}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <!-- LEFT: page tabs. Mirrors MyBI's own Settings sub-tab bar: pill row, icon plus label,
+         active tab in the accent. Folds into the burger panel on phones. -->
+    <nav class="nav-tabs" aria-label="Sections">
+        <a class="nav-tab" href="index.html"><svg class="nav-tab-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5.5 9.5V20h13V9.5"/></svg><span>Home</span></a>
+        <a class="nav-tab" href="index.html#features"><svg class="nav-tab-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M9.5 20V4M15 20v-7M20.5 20v-4"/></svg><span>Features</span></a>
+        <a class="nav-tab on" href="faq.html"><svg class="nav-tab-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.3"/><path d="M12 17v.01"/></svg><span>FAQ</span></a>
+        <a class="nav-tab" href="support.html"><svg class="nav-tab-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M14.4 9.6 18 6M6 18l3.6-3.6M14.4 14.4 18 18M6 6l3.6 3.6"/></svg><span>Support</span></a>
+    </nav>
+
+    <!-- CENTRE: the mark, positioned against the BAR rather than the space left between the
+         side zones, so it stays put as those zones change width from page to page. -->
+    <a class="brand" href="index.html" aria-label="MyBI home">
+      <img class="logo" src="assets/logo-foreground.svg?v=2" alt="" aria-hidden="true" />
+      <span>My<b>BI</b></span>
+    </a>
+
+    <!-- RIGHT: theme plus the one call to action. -->
+    <div class="nav-actions">
+      <span class="theme-seg" role="group" aria-label="Colour theme">
+        <button type="button" data-mode="system" title="System" aria-label="Follow the system theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+        <button type="button" data-mode="light" title="Light" aria-label="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+        <button type="button" data-mode="dark" title="Dark" aria-label="Dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></button>
+      </span>
+      <a class="btn btn-primary btn-sm" href="index.html#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download</a>
+    </div>
+
+    <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero wrap">
+  <h1>Common <span class="g">questions</span>.</h1>
+  <p>What people ask most about platforms, privacy and how MyBI handles your data.</p>
+</section>
+
+<section class="wrap">
+  <article class="legal">
+
+    <h2>Platforms &amp; installing</h2>
+    <div class="faq">
+      <details open>
+        <summary>Which platforms does MyBI run on?</summary>
+        <p>macOS and Windows. On macOS it is a native app for Apple Silicon (M1 or newer). On Windows it is a native 64-bit desktop app. Each build ships only what its platform supports, the Apple-specific engines are simply absent on Windows rather than shown and broken.</p>
+      </details>
+      <details>
+        <summary>Where do I get it?</summary>
+        <p>MyBI is on the <a href="https://apps.apple.com/in/app/mybi/id6791545656?mt=12" target="_blank" rel="noopener">Mac App Store</a> today. The Windows build and a direct macOS download follow, the <a href="index.html#download">download page</a> always shows what is actually available, never a placeholder.</p>
+      </details>
+    </div>
+
+    <h2>Your data</h2>
+    <div class="faq">
+      <details>
+        <summary>Where is my data stored?</summary>
+        <p>On your own machine. MyBI processes your datasets, models and dashboards with an on-device engine and saves them in portable project files on your disk. Nothing is uploaded unless you deliberately publish, share or back it up, see the <a href="privacy-policy">Privacy Policy</a>.</p>
+      </details>
+      <details>
+        <summary>Are my projects encrypted?</summary>
+        <p>Yes. Every project is written as an encrypted container (AES-256-GCM), never as plain files on disk. What changes between plans is <em>which key opens it</em>.</p>
+        <p><strong>Standard.</strong> The container is sealed with a key built into the app. That protects your work from anything reading the raw file, but any MyBI installation can open it. Treat it as encryption at rest, not as a secret only you hold.</p>
+        <p><strong>Device-bound.</strong> The key is tied to your machine, so a copied file does not open anywhere else.</p>
+        <p><strong>Biometric.</strong> The same device-bound key, additionally gated behind Touch ID, Face ID or Windows Hello.</p>
+      </details>
+      <details>
+        <summary>Where is the encryption key kept?</summary>
+        <p>Never in a plain file beside your data. The device-bound key is wrapped by hardware or by your operating system's own protected store, whichever your machine actually offers.</p>
+        <p><strong>Apple.</strong> A non-extractable key held in the <strong>Secure Enclave</strong>. Where the Secure Enclave is unavailable, a device-only key in your login keychain, marked so it never syncs to another machine.</p>
+        <p><strong>Windows.</strong> A non-exportable key in the <strong>TPM</strong> on machines that have one, otherwise <strong>DPAPI</strong>, sealed to your Windows user account. Which of the two applies depends on your hardware and both keep the key off the disk in readable form.</p>
+      </details>
+      <details>
+        <summary>Do you collect analytics about how I use the app?</summary>
+        <p>No. There is no in-app behavioural analytics and no telemetry about your data or your projects. What we hold is the account identity you sign in with and anything you deliberately send us, a support message or a cloud feature you switch on.</p>
+      </details>
+      <details>
+        <summary>Can I move my projects between machines?</summary>
+        <p>Yes. Projects live in portable files you can back up, copy and open on another machine. There is no lock-in.</p>
+      </details>
+      <details>
+        <summary>Can I prove an export has not been altered?</summary>
+        <p>Yes. Every export carries a signed, tamper-evident record of where it came from. MyBI Forensic re-checks that record independently and reports whether it is intact or whether entries were deleted, edited or reordered, it never changes or "repairs" anything.</p>
+      </details>
+    </div>
+
+    <h2>AI</h2>
+    <div class="faq">
+      <details>
+        <summary>Does the AI assistant send my data to the cloud?</summary>
+        <p>Not unless you choose a cloud engine. The assistant runs on-device by default and every data access is permission-gated, MyBI asks before the assistant can read a dataset and tells you plainly when a request would leave your machine.</p>
+      </details>
+      <details>
+        <summary>Can I use my own models or my own API key?</summary>
+        <p>Yes. You can run local models on your own machine or connect a cloud provider with your own key. Which engines are offered depends on your platform and what your hardware can actually run.</p>
+      </details>
+      <details>
+        <summary>Why is a model greyed out?</summary>
+        <p>Because it would not fit. MyBI checks a model against your available memory before offering it, one that cannot run stays disabled rather than being allowed to freeze your machine mid-answer.</p>
+      </details>
+    </div>
+
+    <h2>System requirements</h2>
+    <p>The short version is in the footer of every page. The detail is here.</p>
+    <div class="faq">
+      <details>
+        <summary>What is recommended, rather than minimum?</summary>
+        <p>4 GB of RAM and 500 MB of disk will run MyBI for everyday dashboards. For larger data and on-device AI, 16 GB or more and an SSD make the difference between comfortable and sluggish. On-device AI models are the memory-hungry part, not the dashboards.</p>
+      </details>
+      <details>
+        <summary>How does it scale with my data?</summary>
+        <p>Data is held in memory while you are working on it, so allow roughly one extra gigabyte of RAM per extra gigabyte of data. Storage is the app itself plus whatever your own files take.</p>
+      </details>
+      <details>
+        <summary>What happens if a model will not fit?</summary>
+        <p>It stays disabled. MyBI checks a model against the memory actually available before offering it, so a model that cannot run is never allowed to start and freeze your machine.</p>
+      </details>
+    </div>
+
+    <h2>About MyBI</h2>
+    <div class="faq">
+      <details>
+        <summary>What is MyBI, in one line?</summary>
+        <p>Dashboards, analytics and geospatial intelligence, running on your own machine.</p>
+      </details>
+      <details>
+        <summary>Is MyBI related to MySQL or to the "MyBI" app on Google Play?</summary>
+        <p>No. MyBI means "My Own Business Intelligence". It is an independent project, not affiliated with MySQL or with the "MyBI" app on Google Play.</p>
+      </details>
+    </div>
+
+    <h2>Still stuck?</h2>
+    <p>Open <strong>Feedback → Report a bug</strong> inside MyBI to send a report with optional diagnostics or see the <a href="support.html">support page</a>.</p>
+  </article>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo" src="assets/logo-foreground.svg?v=2" alt="" aria-hidden="true" />
+          <span>My<b>BI</b></span>
+        </a>
+        <p>Dashboards, deep analytics &amp; geospatial intelligence, built block-first, with on-device and cloud AI.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h4>Project</h4>
+          <a href="support.html">Support</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Policies</h4>
+          <a href="privacy-policy">Privacy Policy</a>
+          <a href="terms-of-service">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> MyBI. A business intelligence app.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js?v=50"></script>
+</body>
+</html>
